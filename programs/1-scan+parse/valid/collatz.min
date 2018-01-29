@@ -1,0 +1,19 @@
+// Computes & prints the Collatz Sequence, starting at N
+// Uses float/int division check for deciding even/odd
+
+var N: int = 0;
+var N_flt: float = 0.0;
+
+read N;
+
+while (N != 1) {
+      print N;
+      N_flt = N * 1.0;
+      if (N/2 == N_flt/2){
+      	 N = N/2;
+      }
+      else {
+      	 N = 3*N + 1;
+      }
+}
+print N;

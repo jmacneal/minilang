@@ -2,7 +2,7 @@
 #
 # Usage: ./run.sh <mode> <file>
 # 	mode: scan|tokens|parse|pretty|symbol|typecheck|codegen
-                                
+
 # Check the command-line arguments are valid
 
 if [ $# -lt 2 ]
@@ -28,4 +28,4 @@ fi
 #
 # You MUST replace the following command with the command for invoking your compiler
 
-./src/minic "$1" < "$2"
+./src/mini "$1" < "$2"

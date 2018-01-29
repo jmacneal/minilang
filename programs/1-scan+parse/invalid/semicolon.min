@@ -1,0 +1,4 @@
+// Missing ';'
+
+var variable: int = 5.0
+print variable;

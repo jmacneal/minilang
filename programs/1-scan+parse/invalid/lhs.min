@@ -1,0 +1,8 @@
+// Illegal left-hand side of var assignment
+
+var x: int = 0;
+var y: int = 2;
+
+x + y = y;
+
+

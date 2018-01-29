@@ -1,0 +1,3 @@
+// Uses invalid character '^' for identifier
+
+var ^a: int 5;

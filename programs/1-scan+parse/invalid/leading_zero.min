@@ -1,0 +1,3 @@
+// Illegal leading 0 for int
+
+var x: int = 01

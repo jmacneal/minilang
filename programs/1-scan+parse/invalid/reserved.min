@@ -1,0 +1,6 @@
+// Attempting to use reserved keyword as variable name
+
+var TRUE: int = 1;
+var FALSE: int = 0;
+
+print (TRUE && FALSE);
