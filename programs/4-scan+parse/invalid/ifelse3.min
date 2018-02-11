@@ -1,0 +1,4 @@
+// Semi-colon after closing brace
+if 1 {
+} else {
+};

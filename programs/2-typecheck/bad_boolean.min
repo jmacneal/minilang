@@ -1,0 +1,3 @@
+// Incorrectly spelled boolean string assignment, should be "TRUE"
+
+var b: boolean = "true";

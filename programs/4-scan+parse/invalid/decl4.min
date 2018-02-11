@@ -1,0 +1,2 @@
+// Missing var keyword
+x : int = 0;

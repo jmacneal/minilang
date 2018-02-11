@@ -1,0 +1,3 @@
+// valid if, expr condition
+if 100 {
+}

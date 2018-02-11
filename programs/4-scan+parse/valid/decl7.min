@@ -1,0 +1,2 @@
+// valid declaration, boolean type
+var x : boolean = TRUE;

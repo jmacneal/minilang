@@ -1,0 +1,5 @@
+// valid if-else, expression condition
+var x : boolean = TRUE;
+if x {
+} else {
+}

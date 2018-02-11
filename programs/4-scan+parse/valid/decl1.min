@@ -1,0 +1,2 @@
+// simple valid identifiers, lowercase ASCII only
+var x : int = 0;

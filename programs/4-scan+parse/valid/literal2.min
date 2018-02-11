@@ -1,0 +1,6 @@
+// valid float literals
+var x : float = 0.0;
+x = 0.1;
+x = 1.1;
+x = 0.0;
+x = 0.010; // trailing

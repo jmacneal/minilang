@@ -1,0 +1,3 @@
+// Missing integral part in float
+var x : float = 0.0;
+x = .25;

@@ -1,0 +1,3 @@
+// valid boolean literals
+var x : boolean = TRUE;
+var y : boolean = FALSE;

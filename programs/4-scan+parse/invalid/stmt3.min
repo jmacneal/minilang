@@ -1,0 +1,3 @@
+// Missing semi colon (read)
+var x : int = 0;
+read x

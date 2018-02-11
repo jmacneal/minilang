@@ -1,0 +1,3 @@
+// Type error caused by declaring an int variable with a char* (String) value
+
+var x: int = "Hello";

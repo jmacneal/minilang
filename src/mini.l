@@ -11,15 +11,21 @@
 #include <stdlib.h>
 #include <math.h>
 
-  extern int g_tokens;
+    extern int g_tokens;
 
-// Stores the line number with each token sent to bison
+    // Stores the line number with each token sent to bison
 #define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 %}
 
 /* Helper definitions */
 DIGIT [0-9]
-ESCAPE_CHAR [abfnrtv\\\"]
+LETTER [a-zA-Z]
+SYMBOL []_~@#$%&+/‘<>=|’.;:!?[{}(),^*'`-]
+/* ' */
+WS [ \t\r\n]
+ESCAPE_CHAR [abfnrtv\\"]
+/* " */
+
 
 /* Scanner options, line number generation */
 %option yylineno
@@ -59,6 +65,7 @@ else    {if(g_tokens) printf("tELSE\n"); return tELSE;}
 ")"     {if(g_tokens) printf("tRPAR\n"); return tRPAR;}
 "=="    {if(g_tokens) printf("tEQUALS\n"); return tEQUALS;}
 "!="    {if(g_tokens) printf("tNOTEQUALS\n"); return tNOTEQUALS;}
+"!"     {if(g_tokens) printf("tNOTEQUALS\n"); return tBANG;}
 "&&"    {if(g_tokens) printf("tAND\n"); return tAND;}
 "||"    {if(g_tokens) printf("tOR\n"); return tOR;}
 ":"     {if(g_tokens) printf("tCOLON\n"); return tCOLON;}
@@ -68,47 +75,40 @@ else    {if(g_tokens) printf("tELSE\n"); return tELSE;}
 
 
 0+{DIGIT}+ {
-  fprintf(
-          stderr, "Error: (line %d) Illegal Int '%s'\n",
-          yylineno, yytext); exit(1);
-}
+    fprintf(
+            stderr, "Error: (line %d) Illegal Int '%s'\n",
+            yylineno, yytext); exit(1);
+         }
 
 "."{DIGIT}+|{DIGIT}+"."|0+{DIGIT}+"."{DIGIT}+   {
-  fprintf(
-          stderr, "Error: (line %d) Illegal Float '%s'\n",
-          yylineno, yytext); exit(1);
-}
+    fprintf(
+            stderr, "Error: (line %d) Illegal Float '%s'\n",
+            yylineno, yytext); exit(1);
+                                            }
 
 0|([1-9]{DIGIT}*) {
-  yylval.intval = atoi(yytext);
-  if(g_tokens) printf("tINTVAL(%s)\n", yytext);
-  return tINTVAL;
+    yylval.intval = atoi(yytext);
+    if(g_tokens) printf("tINTVAL(%s)\n", yytext);
+    return tINTVAL;
 }
 
 {DIGIT}+"."{DIGIT}* {
-  yylval.floatval = atof(yytext);
-  if(g_tokens) printf("tFLOATVAL(%s)\n", yytext);
-  return tFLOATVAL;
+    yylval.floatval = atof(yytext);
+    if(g_tokens) printf("tFLOATVAL(%s)\n", yytext);
+    return tFLOATVAL;
+                  }
+
+\"({DIGIT}|{LETTER}|{SYMBOL}|{WS}|\\{ESCAPE_CHAR})*\" {
+    yylval.stringval = strdup(yytext);
+    if(g_tokens) printf("tSTRINGVAL(%s)\n", yytext);
+    return tSTRINGVAL;
 }
 
-
-\".*\\[^abfntrv\\\"].*\" {
-  fprintf(
-        stderr, "Error: (line %d) Illegal escape sequence '%s'\n",
-        yylineno, yytext); exit(1);
-}
-
-
-\"([^\ \"])*\" {
-  yylval.stringval = strdup(yytext);
-if(g_tokens) printf("tSTRINGVAL(%s)\n", yytext);
-  return tSTRINGVAL;
-}
 
 [a-zA-Z_][a-zA-Z0-9_]* {
-  yylval.identifier = strdup(yytext);
-  if(g_tokens) printf("tIDENTIFIER(%s)\n", yytext);
-  return tIDENTIFIER;
+    yylval.identifier = strdup(yytext);
+    if(g_tokens) printf("tIDENTIFIER(%s)\n", yytext);
+    return tIDENTIFIER;
 }
 
 . 	{ fprintf (stderr, "Error: (line %d) unexpected character '%s'\n", yylineno, yytext); exit(1); }

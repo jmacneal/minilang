@@ -1,0 +1,4 @@
+// Illegal unary ! (not) of int
+
+var x: int = 5;
+print !x;

@@ -1,0 +1,3 @@
+// valid assignment
+var x : int = 0;
+x = 3 + x;

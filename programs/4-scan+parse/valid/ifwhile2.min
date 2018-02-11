@@ -1,0 +1,6 @@
+// valid while-if, nested
+var x : int = 0;
+while x {
+	if x {
+	}
+}

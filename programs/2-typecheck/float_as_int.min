@@ -1,0 +1,4 @@
+// Type error caused by declaring an assigning a float val (from int + float) to an int
+
+var x: int = 3;
+x = x + 0.1415927;

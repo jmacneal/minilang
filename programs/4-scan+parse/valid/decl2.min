@@ -1,0 +1,5 @@
+// mixed case valid identifiers
+var x : int = 0;
+var T : int = 0;
+var xT : int = 0;
+var Tx : int = 0;

@@ -1,0 +1,3 @@
+// invalid "
+var x : string = "";
+x = "hello " world";

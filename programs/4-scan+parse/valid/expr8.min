@@ -1,0 +1,3 @@
+// valid bang operation
+var x : boolean = FALSE;
+x = !!!x;

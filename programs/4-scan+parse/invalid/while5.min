@@ -1,0 +1,3 @@
+// Semi-colon after close brace
+while TRUE {
+};
