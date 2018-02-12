@@ -6,7 +6,7 @@
 void yyparse();
 int yylex();
 
-EXP *root;
+PROG *root = NULL;
 
 int main(int argc, char *argv[])
 {
@@ -27,9 +27,9 @@ int main(int argc, char *argv[])
   else if (strcmp(argv[1], "parse") == 0){
     /* printf("Parsing\n"); */
     g_tokens = 0;
+    /* root = makePROG(); */
     yyparse();
-
-    prettyEXP(root);
+    prettyPROG(root);
     /* int result = evalEXP(root); */
     /* printf("\nEvaluation: "); */
 

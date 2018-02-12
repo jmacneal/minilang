@@ -6,6 +6,7 @@
 
 /* Code section */
 %{
+
 #include "parser.tab.h" // Token definitions from the parser
 #include <string.h>
 #include <stdlib.h>

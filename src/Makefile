@@ -1,9 +1,9 @@
 CC = gcc
 
-CFLAGS = -Wall
+CFLAGS = -Wall -ggdb
 
 main: parser.tab.o lex.yy.o main.o tree.h tree.o pretty.h pretty.o
-	$(CC) lex.yy.o parser.tab.o tree.o pretty.o main.o -o mini -lfl
+	$(CC) tree.o lex.yy.o parser.tab.o pretty.o main.o -o mini -lfl
 
 parser.tab.c parser.tab.h: mini.y
 	bison --yacc --defines=parser.tab.c --output=parser.tab.h mini.y
