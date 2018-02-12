@@ -111,13 +111,16 @@ EXP *makeEXP_binary(ExpressionKind op, EXP *lhs, EXP *rhs);
 
 
 
-struct TYPE{
-        enum {t_float,
+typedef enum {t_float,
               t_int,
               t_string,
               t_bool
-        } val;
-};
+} Type;
+
+typedef struct TYPE{
+        Type val;
+} TYPE;
+
 TYPE *makeTYPE_int();
 TYPE *makeTYPE_float();
 TYPE *makeTYPE_string();

@@ -199,10 +199,12 @@ void prettyEXP(EXP *e)
 
         case k_expressionKindUMinus:
                 printf("-");
+                prettyEXP(e->val.unary.child);
                 break;
 
         case k_expressionKindBang:
                 printf("!");
+                prettyEXP(e->val.unary.child);
                 break;
         }
 }

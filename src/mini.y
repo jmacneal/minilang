@@ -121,14 +121,11 @@
 %%
 
 program:
-%empty {}
-| declarations { root = makePROG($1, NULL); }
-| statements { root = makePROG(NULL, $1);  }
-| declarations statements { root = makePROG($1, $2); }
+declarations statements { root = makePROG($1, $2); }
 ;
 
 declarations:
-declaration { $$ = $1; }
+%empty { $$ = NULL; }
 | declaration declarations { $$ = $1; $$->nextDec = $2; }
 ;
 
@@ -137,7 +134,7 @@ tVAR tIDENTIFIER tCOLON type tASSIGN expression tSEMICOLON { $$ = makeDEC($4, $2
 ;
 
 statements:
-statement { $$ = $1; }
+%empty { $$ = NULL; }
 | statement statements { $$ = $1; $$->nextStmt = $2; }
 ;
 
