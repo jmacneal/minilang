@@ -2,36 +2,59 @@
 #include <string.h>
 #include "tree.h"
 #include "pretty.h"
+#include "symbol.h"
 
 void yyparse();
 int yylex();
 
 PROG *root = NULL;
+SymbolTable *table;
 
 int main(int argc, char *argv[])
 {
-  extern int g_tokens;
+        extern int g_tokens;
 
-  if(strcmp(argv[1], "scan") == 0){
-    g_tokens = 0;
-    while(yylex()) {}
-  }
+        if(strcmp(argv[1], "scan") == 0){
+                g_tokens = 0;
+                while(yylex()) {}
+                printf("OK\n");
+        }
 
-  else if (strcmp(argv[1], "tokens") == 0){
-    g_tokens = 1;
-    while(yylex()) {}
-  }
+        else if (strcmp(argv[1], "tokens") == 0){
+                g_tokens = 1;
+                while(yylex()) {}
+                printf("OK\n");
+        }
 
-  else if (strcmp(argv[1], "parse") == 0){
-    g_tokens = 0;
-    yyparse();
-  }
-  else if (strcmp(argv[1], "pretty") == 0){
-    g_tokens = 0;
-    yyparse();
-    prettyPROG(root);
-  }
+        else if (strcmp(argv[1], "parse") == 0){
+                g_tokens = 0;
+                yyparse();
+                printf("OK\n");
+        }
 
-  printf("OK\n");
-  return 0;
+        else if (strcmp(argv[1], "pretty") == 0){
+                g_tokens = 0;
+                yyparse();
+                prettyPROG(root);
+        }
+
+        else if (strcmp(argv[1], "symbol") == 0){
+                g_tokens = 0;
+                yyparse();
+                table = genSymbolTable(root);
+        }
+
+        else if (strcmp(argv[1], "typecheck") == 0){
+                g_tokens = 0;
+                yyparse();
+                prettyPROG(root);
+        }
+
+        else if (strcmp(argv[1], "codegen") == 0){
+                g_tokens = 0;
+                yyparse();
+                prettyPROG(root);
+        }
+
+        return 0;
 }

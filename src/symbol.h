@@ -7,7 +7,8 @@
 
 typedef struct SYMBOL {
         char *identifier;
-        EXP *val;
+        Type type;
+        /* EXP *val; */
         struct SYMBOL *next;
 } SYMBOL;
 
@@ -17,10 +18,21 @@ typedef struct SymbolTable {
 } SymbolTable;
 
 
-int Hash(char *str);
+int hash(char *str);
 SymbolTable *initSymbolTable();
-SymbolTable *scopeSymbolTable(SymbolTable *s);
-SYMBOL *putSymbol(SymbolTable *t, char* name, TYPE *type);
-SYMBOL *getSymbol(SymbolTable *t, char *name);
+SymbolTable *scopeSymbolTable(SymbolTable *stable);
+SYMBOL *putSymbol(SymbolTable *stable, char* identifier, Type type, int lineno);
+SYMBOL *getSymbol(SymbolTable *stable, char *identifier);
+int defSymbol(SymbolTable *stable, char *identifier);
+
+void printSymbol(SYMBOL *symbol);
+
+SymbolTable *genSymbolTable(PROG *prog);
+void genSymbolsDECS(SymbolTable *stable, DEC *rootDeclaration);
+void genSymbolsSTMTS(SymbolTable *stable, STMT *rootStatement);
+void genSymbolsSTMT (SymbolTable *stable, STMT *stmt);
+void genSymbolsEXP(SymbolTable *stable, EXP *exp);
+
+
 
 #endif

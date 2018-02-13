@@ -11,6 +11,20 @@ typedef struct STMT STMT;
 typedef struct EXP EXP;
 typedef struct TYPE TYPE;
 
+typedef enum Type {t_float,
+              t_int,
+              t_string,
+              t_bool
+} Type;
+
+struct TYPE{
+        Type val;
+};
+TYPE *makeTYPE_int();
+TYPE *makeTYPE_float();
+TYPE *makeTYPE_string();
+TYPE *makeTYPE_bool();
+
 struct PROG {
         DEC *rootDeclaration; // Head (1st node) of dec linked list
         /* DEC *nextDeclaration; // 1 past Tail (last node) of dec linked list */
@@ -90,7 +104,7 @@ struct EXP {
 	int lineno;
 
         ExpressionKind kind;
-
+        enum Type type;
 	union {
 		char *identifier;
                 char *stringval;
@@ -109,21 +123,5 @@ EXP *makeEXP_boolval(int boolval);
 EXP *makeEXP_unary(ExpressionKind op, EXP *unary);
 EXP *makeEXP_binary(ExpressionKind op, EXP *lhs, EXP *rhs);
 
-
-
-typedef enum {t_float,
-              t_int,
-              t_string,
-              t_bool
-} Type;
-
-typedef struct TYPE{
-        Type val;
-} TYPE;
-
-TYPE *makeTYPE_int();
-TYPE *makeTYPE_float();
-TYPE *makeTYPE_string();
-TYPE *makeTYPE_bool();
 
 #endif /* !TREE_H */
