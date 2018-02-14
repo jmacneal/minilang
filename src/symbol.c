@@ -174,14 +174,13 @@ void genSymbolsSTMT(SymbolTable *stable, STMT *stmt)
                         break;
 
                 case k_stmtKindAssign:
+                        genSymbolsEXP(stable, stmt->val.assignStmt.rhs);
                         if (!getSymbol(stable, stmt->val.assignStmt.identifier))
                         {
                                 fprintf(stderr, "Error: Var %s has not been declared (line %d) \n",
                                         stmt->val.assignStmt.identifier, stmt->lineno);
                                 exit(1);
                         }
-
-                        genSymbolsEXP(stable, stmt->val.assignStmt.rhs);
                         break;
                 }
         }

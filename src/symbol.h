@@ -8,7 +8,6 @@
 typedef struct SYMBOL {
         char *identifier;
         Type type;
-        /* EXP *val; */
         struct SYMBOL *next;
 } SYMBOL;
 

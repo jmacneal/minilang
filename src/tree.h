@@ -102,9 +102,9 @@ typedef enum {
 
 struct EXP {
 	int lineno;
-
         ExpressionKind kind;
         enum Type type;
+
 	union {
 		char *identifier;
                 char *stringval;

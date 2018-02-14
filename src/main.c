@@ -3,12 +3,13 @@
 #include "tree.h"
 #include "pretty.h"
 #include "symbol.h"
+#include "codegen.h"
 
 void yyparse();
 int yylex();
 
 PROG *root = NULL;
-SymbolTable *table;
+SymbolTable *stable;
 
 int main(int argc, char *argv[])
 {
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
         else if (strcmp(argv[1], "symbol") == 0){
                 g_tokens = 0;
                 yyparse();
-                table = genSymbolTable(root);
+                stable = genSymbolTable(root);
         }
 
         else if (strcmp(argv[1], "typecheck") == 0){
@@ -53,7 +54,8 @@ int main(int argc, char *argv[])
         else if (strcmp(argv[1], "codegen") == 0){
                 g_tokens = 0;
                 yyparse();
-                prettyPROG(root);
+                stable = genSymbolTable(root);
+                generatePROG(stable, root, "mini_generated_c.c");
         }
 
         return 0;
