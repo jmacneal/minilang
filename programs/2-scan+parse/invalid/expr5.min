@@ -1,3 +1,0 @@
-// empty parens
-var x : int = 0;
-x = ();

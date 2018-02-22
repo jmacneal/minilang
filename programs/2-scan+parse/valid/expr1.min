@@ -1,9 +1,0 @@
-// valid expression
-var x : int = 0;
-var y : float = 0.0;
-var z : string = "";
-var b : boolean = TRUE;
-x = 3;
-y = 0.0;
-z = "string";
-b = TRUE;

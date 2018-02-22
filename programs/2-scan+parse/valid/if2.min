@@ -1,4 +1,0 @@
-// valid if
-var x : boolean = TRUE;
-if x {
-}

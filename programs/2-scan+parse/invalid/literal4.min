@@ -1,3 +1,0 @@
-// Missing fractional part in float
-var x : float = 0.0;
-x = 1.;

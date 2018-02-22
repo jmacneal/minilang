@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
                 g_tokens = 0;
                 yyparse();
                 stable = genSymbolTable(root);
-                /* typeCheckPROG(stable, root); */
+                typeCheckPROG(stable, root);
                 char* outputFileName = malloc((strlen(argv[2])+1)*sizeof(char));
                 for (int i=0; (argv[2][i] != '.'); i++)
                         outputFileName[i] = argv[2][i];

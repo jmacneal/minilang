@@ -1,6 +1,0 @@
-// valid, floating point operations
-var x : float = 0.0;
-x = 0.0 + 0.0;
-x = 0.0 - 0.0;
-x = 0.0 * 0.0;
-x = 0.0 / 0.0;

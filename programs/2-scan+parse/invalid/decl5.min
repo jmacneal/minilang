@@ -1,2 +1,0 @@
-// Wrong case on type
-var x : FLOAT = 0.0;

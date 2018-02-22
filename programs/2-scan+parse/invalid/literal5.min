@@ -1,3 +1,0 @@
-// invalid escaped string
-var x : string = "";
-x = "\z";

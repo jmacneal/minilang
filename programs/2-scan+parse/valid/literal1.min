@@ -1,5 +1,0 @@
-// valid integer literals
-var x : int = 0;
-x = 0;
-x = 1;
-x = 10;

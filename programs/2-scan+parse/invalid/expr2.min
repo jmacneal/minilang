@@ -1,3 +1,0 @@
-// Invalid binary operator
-var x : int = 0;
-x = 3 % 4;

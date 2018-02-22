@@ -1,4 +1,0 @@
-// statement instead of expression
-var x : int = 0;
-while x = 1 {
-}

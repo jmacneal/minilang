@@ -1,2 +1,0 @@
-// invalid var name
-var phone_# : string = "";

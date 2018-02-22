@@ -1,4 +1,0 @@
-// valid string operations
-var s : string = "";
-s = "string" + "string";
-s = "string" * 3;

@@ -1,2 +1,0 @@
-// Missing semi colon
-var x : int = 0

@@ -1,3 +1,0 @@
-// No leading zeros allowed
-var x : int = 0;
-x = 01;

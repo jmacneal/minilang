@@ -1,5 +1,0 @@
-// Missing open brace
-if 1
-
-} else {
-}

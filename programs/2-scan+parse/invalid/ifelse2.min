@@ -1,3 +1,0 @@
-// Missing last close brace
-if 1 {
-} else {

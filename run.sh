@@ -28,4 +28,4 @@ fi
 #
 # You MUST replace the following command with the command for invoking your compiler
 
-./src/mini "$1" < "$2"
+./src/mini "$1" "$2" < "$2"

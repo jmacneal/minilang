@@ -1,2 +1,0 @@
-// valid declaration, string type
-var x : string = "";

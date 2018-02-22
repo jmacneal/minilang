@@ -1,3 +1,0 @@
-// Declaration after statements
-print 3;
-var x : int = 0;

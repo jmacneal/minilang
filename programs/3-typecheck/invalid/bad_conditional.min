@@ -1,8 +1,0 @@
-// Incorrectly typed conditional predicated on a float
-
-var x: float = 5.0;
-
-while x {
-      print x;
-      x = x - 1;
-}

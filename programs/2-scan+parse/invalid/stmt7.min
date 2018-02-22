@@ -1,3 +1,0 @@
-// Parenthesized read
-var x : int = 0;
-read (x);

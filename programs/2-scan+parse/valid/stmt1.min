@@ -1,3 +1,0 @@
-// valid read statements
-var x : int = 0;
-read x;

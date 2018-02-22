@@ -1,3 +1,0 @@
-// read with expression
-var x : int = 0;
-read x * x;

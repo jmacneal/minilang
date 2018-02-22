@@ -1,3 +1,0 @@
-// Leading zero in float
-var x : float = 0.0;
-x = 01.3;

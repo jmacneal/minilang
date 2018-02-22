@@ -1,3 +1,0 @@
-// valid assignment
-var x : string = "";
-x = "string!";
